@@ -31,6 +31,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </header>
         <main className="mx-auto max-w-4xl px-4 py-8">{children}</main>
         <footer className="mt-12 border-t border-neutral-200 py-6 text-center text-xs text-neutral-500 dark:border-neutral-800">
+          <p className="mb-2 flex flex-wrap justify-center gap-3">
+            <Link href="/quienes-somos/" className="hover:text-blue-600">Quiénes somos</Link>
+            <Link href="/privacidad/" className="hover:text-blue-600">Privacidad</Link>
+            <Link href="/terminos/" className="hover:text-blue-600">Términos</Link>
+            <Link href="/guia/" className="hover:text-blue-600">Guías</Link>
+          </p>
           <p>
             Los cálculos son orientativos y no constituyen asesoramiento financiero.
             Datos: BCRA e INDEC.
