@@ -40,7 +40,7 @@ function BloqueView({ bloque }: { bloque: Bloque }) {
             </table>
           </div>
           {bloque.caption && (
-            <figcaption className="mt-2 text-xs text-neutral-500">{bloque.caption}</figcaption>
+            <figcaption className="mt-2 text-xs text-neutral-600 dark:text-neutral-400">{bloque.caption}</figcaption>
           )}
         </figure>
       );
@@ -89,10 +89,10 @@ export function ArticuloView({ guia, fecha }: { guia: Guia; fecha: string }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <header>
-        <p className="text-xs uppercase tracking-wide text-neutral-500">Guía</p>
+        <p className="text-xs uppercase tracking-wide text-neutral-600 dark:text-neutral-400">Guía</p>
         <h1 className="text-2xl font-bold sm:text-3xl">{guia.titulo}</h1>
         <p className="mt-2 text-neutral-600 dark:text-neutral-400">{guia.descripcion}</p>
-        <p className="mt-1 text-xs text-neutral-500">
+        <p className="mt-1 text-xs text-neutral-600 dark:text-neutral-400">
           Actualizado automáticamente con datos oficiales · {fecha}
         </p>
       </header>
@@ -104,7 +104,7 @@ export function ArticuloView({ guia, fecha }: { guia: Guia; fecha: string }) {
       </div>
 
       <section className="rounded-xl bg-neutral-100 p-5 dark:bg-neutral-900">
-        <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-500">
+        <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-600 dark:text-neutral-400">
           Preguntas frecuentes
         </h2>
         <div className="mt-3 space-y-4">

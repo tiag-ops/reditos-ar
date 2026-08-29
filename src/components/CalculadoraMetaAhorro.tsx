@@ -55,7 +55,7 @@ export default function CalculadoraMetaAhorro() {
       </div>
 
       <div className="rounded-xl bg-blue-50 p-5 text-center dark:bg-blue-950">
-        <p className="text-xs uppercase tracking-wide text-neutral-500">
+        <p className="text-xs uppercase tracking-wide text-neutral-600 dark:text-neutral-400">
           {alcanzada
             ? "Tu capital inicial solo ya alcanza la meta 🎉"
             : "Tenés que apartar por mes"}
@@ -64,7 +64,7 @@ export default function CalculadoraMetaAhorro() {
           {alcanzada ? "✔" : formatARS(aporteNecesario)}
         </p>
         {!alcanzada && (
-          <p className="mt-1 text-xs text-neutral-500">
+          <p className="mt-1 text-xs text-neutral-600 dark:text-neutral-400">
             {formatARS(aporteNecesario)} × {meses} meses + tu capital inicial creciendo al{" "}
             {temPct}% mensual = {formatARS(meta)}
           </p>

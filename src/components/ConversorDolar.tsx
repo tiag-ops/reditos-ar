@@ -40,7 +40,7 @@ export default function ConversorDolar({ oficial }: { oficial: number }) {
       </div>
 
       <div className="rounded-xl bg-blue-50 p-5 text-center dark:bg-blue-950">
-        <p className="text-xs uppercase tracking-wide text-neutral-500">
+        <p className="text-xs uppercase tracking-wide text-neutral-600 dark:text-neutral-400">
           {sentido === "usdToArs" ? "Recibís" : "Necesitás"}
         </p>
         <p className="mt-1 text-3xl font-bold text-blue-700 dark:text-blue-300">
@@ -48,7 +48,7 @@ export default function ConversorDolar({ oficial }: { oficial: number }) {
             ? formatARS(resultado)
             : `US$ ${formatNum(resultado)}`}
         </p>
-        <p className="mt-1 text-xs text-neutral-500">
+        <p className="mt-1 text-xs text-neutral-600 dark:text-neutral-400">
           Dólar oficial BCRA: {formatARS(oficial)} ·{" "}
           {sentido === "usdToArs"
             ? `US$ ${formatNum(monto)} × ${formatARS(oficial)}`

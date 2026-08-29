@@ -63,7 +63,7 @@ export default function PagePlazoFijo() {
             </tbody>
           </table>
         </div>
-        <p className="mt-2 text-xs text-neutral-500">
+        <p className="mt-2 text-xs text-neutral-600 dark:text-neutral-400">
           Rendimiento porcentual sobre el capital (interés simple, TNA {formatPct(tna)}, TEA{" "}
           {formatPct(tea(tna) * 100)}). Valores recalculados automáticamente cada mes desde los
           datos del BCRA.
@@ -92,7 +92,7 @@ export default function PagePlazoFijo() {
         </p>
       </section>
 
-      <section className="card text-xs leading-relaxed text-neutral-500">
+      <section className="card text-xs leading-relaxed text-neutral-600 dark:text-neutral-400">
         <p>
           Descargo de responsabilidad: esta calculadora es orientativa y no constituye asesoramiento
           financiero. Las tasas reales varían por banco, monto y plazo. Fuente de la tasa de

@@ -24,21 +24,21 @@ export default function Home() {
       {/* Widget "hoy": valores del JSON de datos, nunca hardcodeados */}
       <section className="grid grid-cols-1 gap-3 sm:grid-cols-3">
         <div className="card text-center">
-          <p className="text-xs uppercase tracking-wide text-neutral-500">TNA plazo fijo 30 días</p>
+          <p className="text-xs uppercase tracking-wide text-neutral-600 dark:text-neutral-400">TNA plazo fijo 30 días</p>
           <p className="mt-1 text-2xl font-bold">{formatPct(tna)}</p>
-          <p className="text-xs text-neutral-500">
+          <p className="text-xs text-neutral-600 dark:text-neutral-400">
             BCRA · {tasas.fecha} · $100.000 → {formatARS(ejemplo.interes)}
           </p>
         </div>
         <div className="card text-center">
-          <p className="text-xs uppercase tracking-wide text-neutral-500">Dólar oficial</p>
+          <p className="text-xs uppercase tracking-wide text-neutral-600 dark:text-neutral-400">Dólar oficial</p>
           <p className="mt-1 text-2xl font-bold">{formatARS(dolar.valores.oficial)}</p>
-          <p className="text-xs text-neutral-500">BCRA · {dolar.fecha}</p>
+          <p className="text-xs text-neutral-600 dark:text-neutral-400">BCRA · {dolar.fecha}</p>
         </div>
         <div className="card text-center">
-          <p className="text-xs uppercase tracking-wide text-neutral-500">Inflación mensual</p>
+          <p className="text-xs uppercase tracking-wide text-neutral-600 dark:text-neutral-400">Inflación mensual</p>
           <p className="mt-1 text-2xl font-bold">{formatPct(ipc.valores.ipcMensualPct, 1)}</p>
-          <p className="text-xs text-neutral-500">
+          <p className="text-xs text-neutral-600 dark:text-neutral-400">
             INDEC · {ipc.valores.mes} {ipc.valores.anio}
           </p>
         </div>

@@ -66,7 +66,7 @@ export default function PageInflacion() {
             </tbody>
           </table>
         </div>
-        <p className="mt-2 text-xs text-neutral-500">
+        <p className="mt-2 text-xs text-neutral-600 dark:text-neutral-400">
           Plazo fijo con interés simple por mes (TNA {formatPct(tna)} ÷ 12); inflación compuesta
           mensual. Ambos escenarios recalculados automáticamente cada mes.
         </p>

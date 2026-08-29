@@ -74,7 +74,7 @@ export default function PageInteresCompuesto() {
             </tbody>
           </table>
         </div>
-        <p className="mt-2 text-xs text-neutral-500">
+        <p className="mt-2 text-xs text-neutral-600 dark:text-neutral-400">
           TEM de referencia = TNA del plazo fijo a 30 días ÷ 12 ({formatPct(temRef)}). Los plazos
           fijos no capitalizan mensualmente (pagan interés simple al vencimiento); esta tabla
           asume renovación total mes a mes, que es la práctica habitual.

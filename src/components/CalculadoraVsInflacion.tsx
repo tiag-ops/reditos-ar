@@ -91,22 +91,22 @@ export default function CalculadoraVsInflacion({
 
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
         <div className="card text-center">
-          <p className="text-xs uppercase tracking-wide text-neutral-500">Interés en 30 días</p>
+          <p className="text-xs uppercase tracking-wide text-neutral-600 dark:text-neutral-400">Interés en 30 días</p>
           <p className="mt-1 font-bold text-green-700 dark:text-green-300">+{formatARS2(r.interes30)}</p>
         </div>
         <div className="card text-center">
-          <p className="text-xs uppercase tracking-wide text-neutral-500">Pérdida por inflación</p>
+          <p className="text-xs uppercase tracking-wide text-neutral-600 dark:text-neutral-400">Pérdida por inflación</p>
           <p className="mt-1 font-bold text-red-700 dark:text-red-300">−{formatARS2(r.perdidaInflacion30)}</p>
         </div>
         <div className="card text-center">
-          <p className="text-xs uppercase tracking-wide text-neutral-500">Balance real del mes</p>
+          <p className="text-xs uppercase tracking-wide text-neutral-600 dark:text-neutral-400">Balance real del mes</p>
           <p className={`mt-1 font-bold ${r.real30 >= 0 ? "text-green-700 dark:text-green-300" : "text-red-700 dark:text-red-300"}`}>
             {r.real30 >= 0 ? "+" : "−"}{formatARS2(Math.abs(r.real30))}
           </p>
         </div>
       </div>
 
-      <p className="text-xs text-neutral-500">
+      <p className="text-xs text-neutral-600 dark:text-neutral-400">
         Métodos: TEA con capitalización diaria; inflación anualizada por capitalización compuesta
         del IPC mensual. El balance de 30 días es una aproximación lineal (interés simple vs IPC del
         mes). No constituye asesoramiento financiero.

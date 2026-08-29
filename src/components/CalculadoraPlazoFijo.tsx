@@ -55,18 +55,18 @@ export default function CalculadoraPlazoFijo({ tnaDefault }: { tnaDefault: numbe
 
       <div className="grid grid-cols-1 gap-3 rounded-xl bg-blue-50 p-4 sm:grid-cols-2 dark:bg-blue-950">
         <div>
-          <p className="text-xs uppercase tracking-wide text-neutral-500">Interés ganado</p>
+          <p className="text-xs uppercase tracking-wide text-neutral-600 dark:text-neutral-400">Interés ganado</p>
           <p className="text-2xl font-bold text-blue-700 dark:text-blue-300">
             {formatARS2(interes)}
           </p>
         </div>
         <div>
-          <p className="text-xs uppercase tracking-wide text-neutral-500">Total al vencimiento</p>
+          <p className="text-xs uppercase tracking-wide text-neutral-600 dark:text-neutral-400">Total al vencimiento</p>
           <p className="text-2xl font-bold">{formatARS(total)}</p>
         </div>
       </div>
 
-      <p className="text-xs text-neutral-500">
+      <p className="text-xs text-neutral-600 dark:text-neutral-400">
         Fórmula: interés = capital × TNA × (días ÷ 365). Con {formatPct(tna)} TNA en {dias} días.
         Los montos son orientativos; tu banco puede aplicar una tasa distinta.
       </p>

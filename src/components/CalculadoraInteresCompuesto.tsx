@@ -47,20 +47,20 @@ export default function CalculadoraInteresCompuesto() {
 
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
         <div className="card text-center">
-          <p className="text-xs uppercase tracking-wide text-neutral-500">Total aportado</p>
+          <p className="text-xs uppercase tracking-wide text-neutral-600 dark:text-neutral-400">Total aportado</p>
           <p className="mt-1 font-bold">{formatARS(r.aportado)}</p>
         </div>
         <div className="card text-center">
-          <p className="text-xs uppercase tracking-wide text-neutral-500">Interés ganado</p>
+          <p className="text-xs uppercase tracking-wide text-neutral-600 dark:text-neutral-400">Interés ganado</p>
           <p className="mt-1 font-bold text-green-700 dark:text-green-300">+{formatARS(r.ganancia)}</p>
         </div>
         <div className="card text-center bg-blue-50 dark:bg-blue-950">
-          <p className="text-xs uppercase tracking-wide text-neutral-500">Monto final</p>
+          <p className="text-xs uppercase tracking-wide text-neutral-600 dark:text-neutral-400">Monto final</p>
           <p className="mt-1 text-xl font-bold text-blue-700 dark:text-blue-300">{formatARS(r.final)}</p>
         </div>
       </div>
 
-      <p className="text-xs text-neutral-500">
+      <p className="text-xs text-neutral-600 dark:text-neutral-400">
         Capitalización mensual con aportes al inicio de cada mes (interés sobre el aporte desde el
         primer día). Tasa efectiva mensual: {formatPct(temPct)}.
       </p>
