@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import CalculadoraMetaAhorro from "@/components/CalculadoraMetaAhorro";
-import { formatARS, formatPct } from "@/lib/format";
 import { montoConAportes } from "@/lib/finanzas";
+import { formatARS, formatPct } from "@/lib/format";
 import tasas from "@/data/tasas.json";
 
 export const metadata: Metadata = {
@@ -14,14 +14,13 @@ export const metadata: Metadata = {
 
 export default function PageMetaAhorro() {
   const temRef = tasas.valores.tnaPlazoFijo30 / 12;
-  const metas = [500_000, 1_000_000, 2_000_000];
 
   return (
     <article className="space-y-8">
       <header>
         <h1 className="text-2xl font-bold sm:text-3xl">Calculadora de meta de ahorro</h1>
         <p className="mt-2 text-neutral-600 dark:text-neutral-400">
-          Convertí "quiero juntar X" en un número concreto: cuánto apartar cada mes. Tasa de
+          Convertí &laquo;quiero juntar X&raquo; en un número concreto: cuánto apartar cada mes. Tasa de
           referencia: {formatPct(temRef)} mensual (TNA {formatPct(tasas.valores.tnaPlazoFijo30)} ÷ 12, BCRA).
         </p>
       </header>

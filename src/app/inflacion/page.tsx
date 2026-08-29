@@ -81,7 +81,7 @@ export default function PageInflacion() {
           <Link href="/plazo-fijo-vs-inflacion/" className="text-blue-600 hover:underline">
             plazo fijo vs inflación
           </Link>
-          : no se trata de "ganar mucho", sino de no perder.
+          : no se trata de &laquo;ganar mucho&raquo;, sino de no perder.
         </p>
       </section>
     </article>

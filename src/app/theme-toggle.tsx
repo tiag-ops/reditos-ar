@@ -1,16 +1,23 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
+
+/** Lee el tema desde la clase .dark de <html> (la setea el script anti-flash). */
+function subscribe(onChange: () => void) {
+  const obs = new MutationObserver(onChange);
+  obs.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+  return () => obs.disconnect();
+}
+
+const getSnapshot = () =>
+  document.documentElement.classList.contains("dark") ? "dark" : "light";
+
+const getServerSnapshot = () => "light";
 
 /** Toggle claro/oscuro. Persiste en localStorage ('tema').
  * Default: preferencia del sistema. Sin flash al cargar (script en <head>). */
 export default function ThemeToggle() {
-  const [tema, setTema] = useState<"light" | "dark">("light");
-
-  // leer estado real recién en el cliente (evita mismatch de SSR/SSG)
-  useEffect(() => {
-    setTema(document.documentElement.classList.contains("dark") ? "dark" : "light");
-  }, []);
+  const tema = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   function toggle() {
     const nuevo = tema === "dark" ? "light" : "dark";
@@ -20,7 +27,6 @@ export default function ThemeToggle() {
     } catch {
       /* storage bloqueado: el toggle funciona igual en la sesión */
     }
-    setTema(nuevo);
   }
 
   return (

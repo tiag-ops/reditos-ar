@@ -1,7 +1,6 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { montoConAportes } from "@/lib/finanzas";
 import { formatARS } from "@/lib/format";
 
 /** Cuánto tenés que apartar por mes para llegar a una meta. */
