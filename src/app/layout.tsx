@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ThemeToggle from "./theme-toggle";
+import { themeScript } from "./theme-script";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -14,19 +16,25 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es-AR">
+    <html lang="es-AR" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body>
-        <header className="border-b border-neutral-200 dark:border-neutral-800">
+        <header className="sticky top-0 z-10 border-b border-neutral-200 bg-neutral-50/95 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/95">
           <div className="mx-auto flex max-w-4xl items-center justify-between px-4 py-3">
             <Link href="/" className="text-lg font-bold">
               Redito<span className="text-blue-600">.ar</span>
             </Link>
-            <nav className="flex gap-4 text-sm">
-              <Link href="/guia/" className="hover:text-blue-600">Guías</Link>
-              <Link href="/plazo-fijo/" className="hover:text-blue-600">Plazo fijo</Link>
-              <Link href="/plazo-fijo-vs-inflacion/" className="hover:text-blue-600">Vs inflación</Link>
-              <Link href="/interes-compuesto/" className="hover:text-blue-600">Interés compuesto</Link>
-            </nav>
+            <div className="flex items-center gap-4">
+              <nav className="hidden gap-4 text-sm sm:flex">
+                <Link href="/guia/" className="hover:text-blue-600">Guías</Link>
+                <Link href="/plazo-fijo/" className="hover:text-blue-600">Plazo fijo</Link>
+                <Link href="/plazo-fijo-vs-inflacion/" className="hover:text-blue-600">Vs inflación</Link>
+                <Link href="/interes-compuesto/" className="hover:text-blue-600">Compuesto</Link>
+              </nav>
+              <ThemeToggle />
+            </div>
           </div>
         </header>
         <main className="mx-auto max-w-4xl px-4 py-8">{children}</main>

@@ -1,7 +1,14 @@
 @import "tailwindcss";
 
+/* Modo claro/oscuro por clase en <html> (controlado por el toggle + script anti-flash) */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
 }
 
 body {
