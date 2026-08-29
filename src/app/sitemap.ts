@@ -3,7 +3,7 @@ import { guias } from "@/lib/articulos";
 
 export const dynamic = "force-static";
 
-const BASE = "https://reditos.ar";
+const BASE = "https://reditos.com.ar";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const calculadoras = [
