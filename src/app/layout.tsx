@@ -22,6 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               Redito<span className="text-blue-600">.ar</span>
             </Link>
             <nav className="flex gap-4 text-sm">
+              <Link href="/guia/" className="hover:text-blue-600">Guías</Link>
               <Link href="/plazo-fijo/" className="hover:text-blue-600">Plazo fijo</Link>
               <Link href="/plazo-fijo-vs-inflacion/" className="hover:text-blue-600">Vs inflación</Link>
               <Link href="/interes-compuesto/" className="hover:text-blue-600">Interés compuesto</Link>
