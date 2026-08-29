@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   description:
     "Simuladores de plazo fijo, dólar e inflación con datos oficiales del BCRA e INDEC. Calculá cuánto gana tu ahorro hoy y si le ganás a la inflación.",
   metadataBase: new URL("https://reditos.ar"),
+  verification: {
+    google: "e5Y4y2CX6A_lbY-fYr475wgHnLXYJvB4BaCl0OwLWu8",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
