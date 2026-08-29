@@ -1,0 +1,58 @@
+name: actualizar-datos
+# Pipeline mensual: BCRA/INDEC → JSON → auto-PR → deploy de Pages.
+# Patrón idéntico a vigilar-arca.yml de SueldoNeto.ar.
+on:
+  schedule:
+    - cron: "0 10 1 * *" # 1º de cada mes 10:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Fetch de datos oficiales (BCRA + Argly/INDEC)
+        run: node scripts/fetch-datos.mjs
+
+      - name: Detectar cambios
+        id: diff
+        run: |
+          if git diff --quiet src/data; then
+            echo "cambios=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "cambios=true" >> "$GITHUB_OUTPUT"
+            MES=$(date -u +"%Y-%m")
+            echo "mes=$MES" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Crear rama + commit + PR
+        if: steps.diff.outputs.cambios == 'true'
+        run: |
+          git config user.name "hermes-bot"
+          git config user.email "bot@reditos.ar"
+          git checkout -b "datos/auto-${{ steps.diff.outputs.mes }}"
+          git add src/data
+          git commit -m "datos: actualización automática ${{ steps.diff.outputs.mes }}"
+          git push origin "datos/auto-${{ steps.diff.outputs.mes }}"
+          gh pr create \
+            --title "datos: actualización automática ${{ steps.diff.outputs.mes }}" \
+            --body "JSON de tasas/dólar/IPC regenerados desde BCRA + Argly. Merge automático si el CI pasa." \
+            --base main \
+            --head "datos/auto-${{ steps.diff.outputs.mes }}"
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+      - name: Auto-merge del PR de datos
+        if: steps.diff.outputs.cambios == 'true'
+        run: gh pr merge --auto --squash "datos/auto-${{ steps.diff.outputs.mes }}"
+        env:
+          GH_TOKEN: ${{ github.token }}
