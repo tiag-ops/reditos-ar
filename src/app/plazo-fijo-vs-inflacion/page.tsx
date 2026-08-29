@@ -61,7 +61,7 @@ export default function PageVsInflacion() {
         </p>
       </section>
 
-      <section className="card text-xs leading-relaxed text-neutral-600 dark:text-neutral-400">
+      <section className="card text-[13px] leading-relaxed text-neutral-600 dark:text-neutral-400">
         <p>
           Metodología: inflación anualizada por capitalación compuesta del IPC mensual; TEA con
           capitalización diaria. El IPC es el último dato oficial publicado por INDEC; la tasa, la

@@ -41,11 +41,11 @@ export default function SimuladorInflacion({ ipcMensualDefault }: { ipcMensualDe
       </div>
 
       <div className="rounded-xl bg-red-50 p-5 text-center dark:bg-red-950">
-        <p className="text-xs uppercase tracking-wide text-neutral-600 dark:text-neutral-400">
+        <p className="text-[13px] uppercase tracking-wide text-neutral-600 dark:text-neutral-400">
           Para comprar lo mismo en {meses} meses vas a necesitar
         </p>
         <p className="mt-1 text-3xl font-bold text-red-700 dark:text-red-300">{formatARS(r.futuro)}</p>
-        <p className="mt-1 text-xs text-neutral-600 dark:text-neutral-400">
+        <p className="mt-1 text-[13px] text-neutral-600 dark:text-neutral-400">
           Acumulación de {(r.factor - 1) * 100 >= 0 ? `+${((r.factor - 1) * 100).toFixed(1)}` : "0"}%
           en {meses} meses a {ipc}% mensual. Lo que hoy vale {formatARS(monto)} habrá perdido esa
           parte de su poder de compra si está quieto.

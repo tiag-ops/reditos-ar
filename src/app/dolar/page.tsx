@@ -43,7 +43,7 @@ export default function PageDolar() {
           </Link>{" "}
           antes de decidir.
         </p>
-        <p className="text-xs text-neutral-600 dark:text-neutral-400">
+        <p className="text-[13px] text-neutral-600 dark:text-neutral-400">
           Esta página usa el dólar oficial mayorista del BCRA. El dólar blue y el
           ahorro (con impuestos) se agregan en próximas versiones.
         </p>

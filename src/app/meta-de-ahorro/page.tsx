@@ -66,7 +66,7 @@ export default function PageMetaAhorro() {
             </tbody>
           </table>
         </div>
-        <p className="mt-2 text-xs text-neutral-600 dark:text-neutral-400">
+        <p className="mt-2 text-[13px] text-neutral-600 dark:text-neutral-400">
           Aportes al inicio de cada mes con capitalización mensual ({formatPct(temRef)}). Valores
           recalculados automáticamente con la tasa del BCRA.
         </p>

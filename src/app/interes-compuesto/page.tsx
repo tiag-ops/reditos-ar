@@ -63,7 +63,7 @@ export default function PageInteresCompuesto() {
                     return (
                       <td key={m} className="py-2 pr-4">
                         ${final.toLocaleString("es-AR", { maximumFractionDigits: 0 })}
-                        <span className="ml-1 text-xs text-green-700 dark:text-green-400">
+                        <span className="ml-1 text-[13px] text-green-700 dark:text-green-400">
                           (+{ganancia.toFixed(1)}%)
                         </span>
                       </td>
@@ -74,7 +74,7 @@ export default function PageInteresCompuesto() {
             </tbody>
           </table>
         </div>
-        <p className="mt-2 text-xs text-neutral-600 dark:text-neutral-400">
+        <p className="mt-2 text-[13px] text-neutral-600 dark:text-neutral-400">
           TEM de referencia = TNA del plazo fijo a 30 días ÷ 12 ({formatPct(temRef)}). Los plazos
           fijos no capitalizan mensualmente (pagan interés simple al vencimiento); esta tabla
           asume renovación total mes a mes, que es la práctica habitual.
