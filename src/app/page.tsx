@@ -65,12 +65,24 @@ export default function Home() {
               Con aportes mensuales: el efecto bola de nieve.
             </p>
           </Link>
-          <div className="card opacity-60">
-            <h3 className="font-semibold">💵 Dólar y más (pronto)</h3>
+          <Link href="/dolar/" className="card hover:border-blue-400">
+            <h3 className="font-semibold">💵 Dólar oficial</h3>
             <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
-              Conversor e histórico: en construcción.
+              Cotización BCRA de hoy y conversor pesos ↔ dólares.
             </p>
-          </div>
+          </Link>
+          <Link href="/inflacion/" className="card hover:border-blue-400">
+            <h3 className="font-semibold">🔥 Inflación</h3>
+            <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
+              Cuánto vas a necesitar mañana para comprar lo mismo que hoy.
+            </p>
+          </Link>
+          <Link href="/meta-de-ahorro/" className="card hover:border-blue-400">
+            <h3 className="font-semibold">🎯 Meta de ahorro</h3>
+            <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
+              Cuánto apartar por mes para llegar a tu meta.
+            </p>
+          </Link>
         </div>
       </section>
 
