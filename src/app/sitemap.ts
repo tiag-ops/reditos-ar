@@ -28,5 +28,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...calculadoras, ...indices, ...articulos];
+  const legales = ["/privacidad/", "/terminos/", "/quienes-somos/"].map((p) => ({
+    url: `${BASE}${p}`,
+    changeFrequency: "yearly" as const,
+    priority: 0.3,
+  }));
+
+  return [...calculadoras, ...indices, ...articulos, ...legales];
 }
