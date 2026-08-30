@@ -12,8 +12,8 @@
 }
 
 html {
-  /* Base 17px (default 16): escala todo el sitio vía rem — legibilidad +6% */
-  font-size: 106.25%;
+  /* Base 18px (default 16): escala todo el sitio vía rem — legibilidad +12.5% */
+  font-size: 112.5%;
 }
 
 body {
