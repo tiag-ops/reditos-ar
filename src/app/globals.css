@@ -11,6 +11,11 @@
   color-scheme: dark;
 }
 
+html {
+  /* Base 17px (default 16): escala todo el sitio vía rem — legibilidad +6% */
+  font-size: 106.25%;
+}
+
 body {
   @apply bg-neutral-50 text-neutral-900 antialiased dark:bg-neutral-950 dark:text-neutral-100;
 }
