@@ -84,6 +84,24 @@ export default function PageInflacion() {
           : no se trata de &laquo;ganar mucho&raquo;, sino de no perder.
         </p>
       </section>
+
+      <section className="card">
+        <h2 className="text-lg font-semibold">Guías relacionadas</h2>
+        <ul className="mt-2 space-y-1 text-sm">
+          <li>
+            <Link href="/guia/que-es-el-cer/" className="text-blue-600 hover:underline">
+              Qué es el CER
+            </Link>{" "}
+            — el índice con el que se ajustan los instrumentos indexados.
+          </li>
+          <li>
+            <Link href="/guia/inflacion-argentina-2026/" className="text-blue-600 hover:underline">
+              Inflación en Argentina: cómo afecta tus ahorros
+            </Link>{" "}
+            — historia reciente y qué hacer con tu plata.
+          </li>
+        </ul>
+      </section>
     </article>
   );
 }

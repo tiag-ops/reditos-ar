@@ -102,6 +102,24 @@ export default function PageInteresCompuesto() {
           .
         </p>
       </section>
+
+      <section className="card">
+        <h2 className="text-lg font-semibold">Guías relacionadas</h2>
+        <ul className="mt-2 space-y-1 text-sm">
+          <li>
+            <Link href="/guia/interes-compuesto-diario-vs-mensual/" className="text-blue-600 hover:underline">
+              Interés compuesto diario vs mensual
+            </Link>{" "}
+            — cuánto cambia la frecuencia de capitalización con números de hoy.
+          </li>
+          <li>
+            <Link href="/guia/cuanto-gana-plazo-fijo-500000/" className="text-blue-600 hover:underline">
+              ¿Cuánto gana un plazo fijo de $500.000?
+            </Link>{" "}
+            — el caso de uso más común para renovaciones.
+          </li>
+        </ul>
+      </section>
     </article>
   );
 }

@@ -48,6 +48,24 @@ export default function PageDolar() {
           ahorro (con impuestos) se agregan en próximas versiones.
         </p>
       </section>
+
+      <section className="card">
+        <h2 className="text-lg font-semibold">Guías relacionadas</h2>
+        <ul className="mt-2 space-y-1 text-sm">
+          <li>
+            <Link href="/guia/plazo-fijo-vs-dolar/" className="text-blue-600 hover:underline">
+              Plazo fijo vs dólar: dónde conviene poner los ahorros
+            </Link>{" "}
+            — la comparación con números reales.
+          </li>
+          <li>
+            <Link href="/guia/donde-guardar-dolares-argentina/" className="text-blue-600 hover:underline">
+              Dónde guardar dólares en Argentina
+            </Link>{" "}
+            — opciones y riesgos de cada una.
+          </li>
+        </ul>
+      </section>
     </article>
   );
 }

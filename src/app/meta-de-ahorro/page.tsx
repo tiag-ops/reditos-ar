@@ -89,6 +89,24 @@ export default function PageMetaAhorro() {
           .
         </p>
       </section>
+
+      <section className="card">
+        <h2 className="text-lg font-semibold">Guías relacionadas</h2>
+        <ul className="mt-2 space-y-1 text-sm">
+          <li>
+            <Link href="/guia/cuanto-gana-plazo-fijo-500000/" className="text-blue-600 hover:underline">
+              ¿Cuánto gana un plazo fijo de $500.000?
+            </Link>{" "}
+            — dónde meter la cuota que te sobra hoy.
+          </li>
+          <li>
+            <Link href="/guia/como-calcular-interes-plazo-fijo/" className="text-blue-600 hover:underline">
+              Cómo calcular el interés de un plazo fijo
+            </Link>{" "}
+            — fórmula y ejemplos para verificar cualquier oferta.
+          </li>
+        </ul>
+      </section>
     </article>
   );
 }

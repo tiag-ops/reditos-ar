@@ -92,6 +92,30 @@ export default function PagePlazoFijo() {
         </p>
       </section>
 
+      <section className="card">
+        <h2 className="text-lg font-semibold">Guías relacionadas</h2>
+        <ul className="mt-2 space-y-1 text-sm">
+          <li>
+            <Link href="/guia/cuanto-gana-plazo-fijo-1000000/" className="text-blue-600 hover:underline">
+              ¿Cuánto gana un plazo fijo de $1.000.000?
+            </Link>{" "}
+            — el número exacto a 30, 60 y 90 días.
+          </li>
+          <li>
+            <Link href="/guia/como-calcular-interes-plazo-fijo/" className="text-blue-600 hover:underline">
+              Cómo calcular el interés de un plazo fijo
+            </Link>{" "}
+            — la fórmula, TNA vs TEA y ejemplos.
+          </li>
+          <li>
+            <Link href="/guia/como-leer-tabla-tasas-bcra/" className="text-blue-600 hover:underline">
+              Cómo leer la tabla de tasas del BCRA
+            </Link>{" "}
+            — qué significa cada sigla de la que sale tu tasa.
+          </li>
+        </ul>
+      </section>
+
       <section className="card text-[13px] leading-relaxed text-neutral-600 dark:text-neutral-400">
         <p>
           Descargo de responsabilidad: esta calculadora es orientativa y no constituye asesoramiento

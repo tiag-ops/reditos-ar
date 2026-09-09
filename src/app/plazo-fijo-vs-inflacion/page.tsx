@@ -61,6 +61,30 @@ export default function PageVsInflacion() {
         </p>
       </section>
 
+      <section className="card">
+        <h2 className="text-lg font-semibold">Guías relacionadas</h2>
+        <ul className="mt-2 space-y-1 text-sm">
+          <li>
+            <Link href="/guia/interes-compuesto-guia-simple/" className="text-blue-600 hover:underline">
+              Interés compuesto: guía simple
+            </Link>{" "}
+            — cómo funciona renovar capital más interés mes a mes.
+          </li>
+          <li>
+            <Link href="/guia/inflacion-argentina-2026/" className="text-blue-600 hover:underline">
+              Inflación en Argentina: cómo afecta tus ahorros
+            </Link>{" "}
+            — el rival que tenés que vencer.
+          </li>
+          <li>
+            <Link href="/guia/conviene-plazo-fijo-uva/" className="text-blue-600 hover:underline">
+              Plazo fijo UVA: cuándo conviene
+            </Link>{" "}
+            — la alternativa indexada a la inflación.
+          </li>
+        </ul>
+      </section>
+
       <section className="card text-[13px] leading-relaxed text-neutral-600 dark:text-neutral-400">
         <p>
           Metodología: inflación anualizada por capitalación compuesta del IPC mensual; TEA con
