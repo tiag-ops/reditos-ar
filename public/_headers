@@ -1,0 +1,5 @@
+# La OG image exportada sale como application/octet-stream; los scrapers de
+# WhatsApp/Twitter/Slack son estrictos con el MIME.
+/opengraph-image*
+  Content-Type: image/png
+  Cache-Control: public, max-age=86400

@@ -56,8 +56,9 @@ function BloqueView({ bloque }: { bloque: Bloque }) {
   }
 }
 
-/** Página de artículo completa con JSON-LD Article + FAQPage. */
+/** Página de artículo completa con JSON-LD Article + FAQPage + BreadcrumbList. */
 export function ArticuloView({ guia, fecha }: { guia: Guia; fecha: string }) {
+  const BASE = "https://reditos.com.ar";
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -68,6 +69,7 @@ export function ArticuloView({ guia, fecha }: { guia: Guia; fecha: string }) {
         datePublished: fecha,
         dateModified: fecha,
         inLanguage: "es-AR",
+        mainEntityOfPage: `${BASE}/guia/${guia.slug}/`,
         author: { "@type": "Organization", name: "Redito.ar" },
         publisher: { "@type": "Organization", name: "Redito.ar" },
       },
@@ -79,6 +81,14 @@ export function ArticuloView({ guia, fecha }: { guia: Guia; fecha: string }) {
           acceptedAnswer: { "@type": "Answer", text: f.respuesta },
         })),
       },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Inicio", item: `${BASE}/` },
+          { "@type": "ListItem", position: 2, name: "Guías", item: `${BASE}/guia/` },
+          { "@type": "ListItem", position: 3, name: guia.titulo, item: `${BASE}/guia/${guia.slug}/` },
+        ],
+      },
     ],
   };
 
@@ -89,8 +99,13 @@ export function ArticuloView({ guia, fecha }: { guia: Guia; fecha: string }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <header>
-        <p className="text-[13px] uppercase tracking-wide text-neutral-600 dark:text-neutral-400">Guía</p>
-        <h1 className="text-2xl font-bold sm:text-3xl">{guia.titulo}</h1>
+        <nav aria-label="Miga de pan" className="text-[13px]">
+          <Link href="/guia/" className="text-blue-600 hover:underline dark:text-blue-400">
+            ← Guías
+          </Link>
+          <span className="text-neutral-400 dark:text-neutral-600"> / {guia.titulo}</span>
+        </nav>
+        <h1 className="mt-2 text-2xl font-bold sm:text-3xl">{guia.titulo}</h1>
         <p className="mt-2 text-neutral-600 dark:text-neutral-400">{guia.descripcion}</p>
         <p className="mt-1 text-[13px] text-neutral-600 dark:text-neutral-400">
           Actualizado automáticamente con datos oficiales · {fecha}

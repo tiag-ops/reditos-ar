@@ -20,6 +20,15 @@ export async function generateMetadata({
     title: guia.titulo,
     description: guia.descripcion,
     alternates: { canonical: `/guia/${slug}/` },
+    openGraph: {
+      type: "article",
+      title: guia.titulo,
+      description: guia.descripcion,
+      url: `/guia/${slug}/`,
+      publishedTime: tasas.fecha,
+      modifiedTime: tasas.fecha,
+    },
+    twitter: { card: "summary_large_image" },
   };
 }
 

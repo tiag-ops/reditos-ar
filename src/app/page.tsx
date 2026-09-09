@@ -1,9 +1,43 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { formatARS, formatPct } from "@/lib/format";
+import { guias } from "@/lib/articulos";
 import { vencimientoPlazoFijo } from "@/lib/finanzas";
 import tasas from "@/data/tasas.json";
 import dolar from "@/data/dolar.json";
 import ipc from "@/data/ipc.json";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+  keywords: [
+    "calculadora plazo fijo",
+    "plazo fijo hoy",
+    "cuánto gana un plazo fijo",
+    "interés compuesto",
+    "dólar oficial",
+    "inflación argentina",
+    "plazo fijo vs inflación",
+  ],
+};
+
+const siteJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      name: "Redito.ar",
+      alternateName: "Redito",
+      url: "https://reditos.com.ar/",
+      inLanguage: "es-AR",
+    },
+    {
+      "@type": "Organization",
+      name: "Redito.ar",
+      url: "https://reditos.com.ar/",
+      logo: "https://reditos.com.ar/icon.svg",
+    },
+  ],
+};
 
 export default function Home() {
   const tna = tasas.valores.tnaPlazoFijo30;
@@ -11,6 +45,10 @@ export default function Home() {
 
   return (
     <div className="space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
+      />
       <section className="text-center">
         <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
           ¿Cuánto rinde tu ahorro <span className="text-blue-600">hoy</span>?
@@ -82,6 +120,25 @@ export default function Home() {
             <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
               Cuánto apartar por mes para llegar a tu meta.
             </p>
+          </Link>
+        </div>
+      </section>
+
+      <section>
+        <h2 className="mb-4 text-xl font-semibold">Guías</h2>
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+          {guias.map((g) => (
+            <Link key={g.slug} href={`/guia/${g.slug}/`} className="card hover:border-blue-400">
+              <h3 className="text-[15px] font-semibold leading-snug">{g.titulo}</h3>
+              <p className="mt-1 text-sm text-neutral-600 line-clamp-2 dark:text-neutral-400">
+                {g.descripcion}
+              </p>
+            </Link>
+          ))}
+        </div>
+        <div className="mt-3 text-right">
+          <Link href="/guia/" className="text-sm text-blue-600 hover:underline dark:text-blue-400">
+            Ver todas las guías →
           </Link>
         </div>
       </section>

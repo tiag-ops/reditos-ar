@@ -1,8 +1,15 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Link from "next/link";
 import ThemeToggle from "./theme-toggle";
 import { themeScript } from "./theme-script";
 import "./globals.css";
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f5f5f5" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+  ],
+};
 
 export const metadata: Metadata = {
   title: {
@@ -12,6 +19,21 @@ export const metadata: Metadata = {
   description:
     "Simuladores de plazo fijo, dólar e inflación con datos oficiales del BCRA e INDEC. Calculá cuánto gana tu ahorro hoy y si le ganás a la inflación.",
   metadataBase: new URL("https://reditos.com.ar"),
+  openGraph: {
+    type: "website",
+    locale: "es_AR",
+    url: "https://reditos.com.ar/",
+    siteName: "Redito.ar",
+    title: "Redito.ar — Calculadoras de ahorro e inversión en Argentina",
+    description:
+      "Simuladores de plazo fijo, dólar e inflación con datos oficiales del BCRA e INDEC. Calculá cuánto gana tu ahorro hoy y si le ganás a la inflación.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Redito.ar — Calculadoras de ahorro e inversión en Argentina",
+    description:
+      "Simuladores de plazo fijo, dólar e inflación con datos oficiales del BCRA e INDEC.",
+  },
   verification: {
     google: "e5Y4y2CX6A_lbY-fYr475wgHnLXYJvB4BaCl0OwLWu8",
   },
@@ -21,6 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es-AR" suppressHydrationWarning>
       <head>
+        <link rel="manifest" href="/manifest.webmanifest" />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body>
