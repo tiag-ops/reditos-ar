@@ -93,7 +93,7 @@ export function ArticuloView({ guia, fecha }: { guia: Guia; fecha: string }) {
   };
 
   return (
-    <article className="space-y-6">
+    <article className="mx-auto max-w-[640px] space-y-6">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -105,14 +105,14 @@ export function ArticuloView({ guia, fecha }: { guia: Guia; fecha: string }) {
           </Link>
           <span className="text-neutral-400 dark:text-neutral-600"> / {guia.titulo}</span>
         </nav>
-        <h1 className="mt-2 text-2xl font-bold sm:text-3xl">{guia.titulo}</h1>
+        <h1 className="mt-2 font-extrabold tracking-tight text-2xl sm:text-3xl">{guia.titulo}</h1>
         <p className="mt-2 text-neutral-600 dark:text-neutral-400">{guia.descripcion}</p>
         <p className="mt-1 text-[13px] text-neutral-600 dark:text-neutral-400">
           Actualizado automáticamente con datos oficiales · {fecha}
         </p>
       </header>
 
-      <div className="space-y-4 text-[15px] text-neutral-700 dark:text-neutral-300">
+      <div className="space-y-4 text-[17px] leading-relaxed text-neutral-700 dark:text-neutral-300">
         {guia.bloques.map((b, i) => (
           <BloqueView key={i} bloque={b} />
         ))}
