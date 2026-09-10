@@ -1,9 +1,10 @@
 # La OG image exportada sale como application/octet-stream; los scrapers de
 # WhatsApp/Twitter/Slack son estrictos con el MIME.
+# OJO: una sola regla admite UN splat; el slug va como placeholder :slug.
 /opengraph-image*
   Content-Type: image/png
   Cache-Control: public, max-age=86400
-/guia/*/opengraph-image*
+/guia/:slug/opengraph-image*
   Content-Type: image/png
   Cache-Control: public, max-age=86400
 /og/*
