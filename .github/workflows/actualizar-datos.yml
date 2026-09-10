@@ -23,6 +23,15 @@ jobs:
       - name: Fetch de datos oficiales (BCRA + Argly/INDEC)
         run: node scripts/fetch-datos.mjs
 
+      - name: Sanity de los datos (rango + frescura)
+        run: node scripts/sanity-datos.mjs
+
+      - name: Validar con tests antes de abrir el PR
+        run: |
+          npm ci
+          npm test
+          npm run build
+
       - name: Detectar cambios
         id: diff
         run: |
@@ -51,8 +60,17 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
 
-      - name: Auto-merge del PR de datos
+      - name: Esperar checks y mergear el PR de datos
         if: steps.diff.outputs.cambios == 'true'
-        run: gh pr merge --auto --squash "datos/auto-${{ steps.diff.outputs.mes }}"
+        run: |
+          PR=$(gh pr view "datos/auto-${{ steps.diff.outputs.mes }}" --json number -q .number)
+          # Los checks tardan ~1 min en registrarse al crear el PR: poll antes de --watch
+          for i in $(seq 1 30); do
+            gh pr checks "$PR" >/dev/null 2>&1 && break
+            sleep 20
+          done
+          # --watch termina con exit code != 0 si algún check falla → no mergea
+          gh pr checks "$PR" --watch --interval 20
+          gh pr merge --squash "$PR" --delete-branch
         env:
           GH_TOKEN: ${{ github.token }}
