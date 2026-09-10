@@ -26,10 +26,7 @@ export default function PageIndiceGuias() {
               href={`/guia/${g.slug}/`}
               className="card block h-full hover:border-blue-400"
             >
-              <h2 className="font-semibold">{g.titulo}</h2>
-              <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
-                {g.descripcion}
-              </p>
+              <h2 className="text-lg font-bold leading-snug">{g.titulo}</h2>
             </Link>
           </li>
         ))}

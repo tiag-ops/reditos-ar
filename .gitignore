@@ -9,3 +9,6 @@ CLAUDE.md
 
 # Estado local de GSC
 gsc_state.json
+
+# OG de widgets (se regeneran en prebuild)
+public/og/

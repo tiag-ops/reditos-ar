@@ -3,3 +3,9 @@
 /opengraph-image*
   Content-Type: image/png
   Cache-Control: public, max-age=86400
+/guia/*/opengraph-image*
+  Content-Type: image/png
+  Cache-Control: public, max-age=86400
+/og/*
+  Content-Type: image/png
+  Cache-Control: public, max-age=86400

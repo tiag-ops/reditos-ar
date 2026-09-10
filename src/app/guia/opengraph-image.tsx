@@ -5,11 +5,11 @@ export const dynamic = "force-static";
 export const size = OG_SIZE;
 export const contentType = OG_CONTENT_TYPE;
 
-export const alt = "Redito.ar — Calculadoras de ahorro e inversión en Argentina";
+export const alt = "Todas las guías de Redito.ar: plazo fijo, UVA, CER, Lecaps, dólar e inflación";
 
 export default function Image() {
   return new ImageResponse(
-    <PlantillaOG titular="¿Cuánto rinde tu ahorro hoy?" chip="Inicio" />,
+    <PlantillaOG titular="Guías de ahorro e inversión" chip="Guías" />,
     size,
   );
 }

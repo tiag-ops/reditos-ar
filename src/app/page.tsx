@@ -39,6 +39,60 @@ const siteJsonLd = {
   ],
 };
 
+interface WidgetCalc {
+  href: string;
+  titulo: string;
+  descripcion: string;
+  img: string;
+  alt: string;
+}
+
+/** Widgets con imagen estandarizada (mismo diseño que las OG de cada ruta). */
+const widgets: WidgetCalc[] = [
+  {
+    href: "/plazo-fijo/",
+    titulo: "📈 Plazo fijo tradicional",
+    descripcion: "Cuánto ganás con tu plazo fijo a 30, 60 o 90 días.",
+    img: "/og/plazo-fijo.png",
+    alt: "Calculadora de plazo fijo tradicional",
+  },
+  {
+    href: "/plazo-fijo-vs-inflacion/",
+    titulo: "🔥 Plazo fijo vs inflación",
+    descripcion: "¿Le ganás o no a la inflación? La cuenta que casi nadie te muestra.",
+    img: "/og/plazo-fijo-vs-inflacion.png",
+    alt: "Plazo fijo vs inflación si le ganás a la inflación",
+  },
+  {
+    href: "/interes-compuesto/",
+    titulo: "🌱 Interés compuesto",
+    descripcion: "Con aportes mensuales: el efecto bola de nieve.",
+    img: "/og/interes-compuesto.png",
+    alt: "Calculadora de interés compuesto con aportes mensuales",
+  },
+  {
+    href: "/dolar/",
+    titulo: "💵 Dólar oficial",
+    descripcion: "Cotización BCRA de hoy y conversor pesos ↔ dólares.",
+    img: "/og/dolar.png",
+    alt: "Dólar oficial BCRA de hoy con conversor",
+  },
+  {
+    href: "/inflacion/",
+    titulo: "🔥 Inflación",
+    descripcion: "Cuánto vas a necesitar mañana para comprar lo mismo que hoy.",
+    img: "/og/inflacion.png",
+    alt: "Calculadora de inflación Argentina",
+  },
+  {
+    href: "/meta-de-ahorro/",
+    titulo: "🎯 Meta de ahorro",
+    descripcion: "Cuánto apartar por mes para llegar a tu meta.",
+    img: "/og/meta-de-ahorro.png",
+    alt: "Calculadora de meta de ahorro mensual",
+  },
+];
+
 export default function Home() {
   const tna = tasas.valores.tnaPlazoFijo30;
   const ejemplo = vencimientoPlazoFijo(100_000, tna, 30);
@@ -84,59 +138,51 @@ export default function Home() {
 
       <section>
         <h2 className="mb-4 text-xl font-semibold">Calculadoras</h2>
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-          <Link href="/plazo-fijo/" className="card hover:border-blue-400">
-            <h3 className="font-semibold">📈 Plazo fijo tradicional</h3>
-            <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
-              Cuánto ganás con tu plazo fijo a 30, 60 o 90 días.
-            </p>
-          </Link>
-          <Link href="/plazo-fijo-vs-inflacion/" className="card hover:border-blue-400">
-            <h3 className="font-semibold">🔥 Plazo fijo vs inflación</h3>
-            <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
-              ¿Le ganás o no a la inflación? La cuenta que casi nadie te muestra.
-            </p>
-          </Link>
-          <Link href="/interes-compuesto/" className="card hover:border-blue-400">
-            <h3 className="font-semibold">🌱 Interés compuesto</h3>
-            <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
-              Con aportes mensuales: el efecto bola de nieve.
-            </p>
-          </Link>
-          <Link href="/dolar/" className="card hover:border-blue-400">
-            <h3 className="font-semibold">💵 Dólar oficial</h3>
-            <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
-              Cotización BCRA de hoy y conversor pesos ↔ dólares.
-            </p>
-          </Link>
-          <Link href="/inflacion/" className="card hover:border-blue-400">
-            <h3 className="font-semibold">🔥 Inflación</h3>
-            <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
-              Cuánto vas a necesitar mañana para comprar lo mismo que hoy.
-            </p>
-          </Link>
-          <Link href="/meta-de-ahorro/" className="card hover:border-blue-400">
-            <h3 className="font-semibold">🎯 Meta de ahorro</h3>
-            <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
-              Cuánto apartar por mes para llegar a tu meta.
-            </p>
-          </Link>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
+          {widgets.map((w) => (
+            <Link key={w.href} href={w.href} className="group block">
+              <img
+                src={w.img}
+                alt={w.alt}
+                width={1200}
+                height={630}
+                loading="lazy"
+                className="aspect-[1200/630] w-full rounded-lg object-cover"
+              />
+              <h3 className="mt-2 text-lg font-bold leading-snug group-hover:text-blue-600">
+                {w.titulo}
+              </h3>
+              <p className="mt-1 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">
+                {w.descripcion}
+              </p>
+            </Link>
+          ))}
         </div>
       </section>
 
       <section>
         <h2 className="mb-4 text-xl font-semibold">Guías</h2>
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
           {guias.map((g) => (
-            <Link key={g.slug} href={`/guia/${g.slug}/`} className="card hover:border-blue-400">
-              <h3 className="text-[15px] font-semibold leading-snug">{g.titulo}</h3>
-              <p className="mt-1 text-sm text-neutral-600 line-clamp-2 dark:text-neutral-400">
+            <Link key={g.slug} href={`/guia/${g.slug}/`} className="group block">
+              <img
+                src={`/guia/${g.slug}/opengraph-image`}
+                alt={g.titulo}
+                width={1200}
+                height={630}
+                loading="lazy"
+                className="aspect-[1200/630] w-full rounded-lg object-cover"
+              />
+              <h3 className="mt-2 text-lg font-bold leading-snug group-hover:text-blue-600">
+                {g.titulo}
+              </h3>
+              <p className="mt-1 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">
                 {g.descripcion}
               </p>
             </Link>
           ))}
         </div>
-        <div className="mt-3 text-right">
+        <div className="mt-4 text-right">
           <Link href="/guia/" className="text-sm text-blue-600 hover:underline dark:text-blue-400">
             Ver todas las guías →
           </Link>

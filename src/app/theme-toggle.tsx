@@ -15,7 +15,7 @@ const getSnapshot = () =>
 const getServerSnapshot = () => "light";
 
 /** Toggle claro/oscuro. Persiste en localStorage ('tema').
- * Default: preferencia del sistema. Sin flash al cargar (script en <head>). */
+ * Default: light. Solo vuelve a dark si el usuario lo eligió antes. */
 export default function ThemeToggle() {
   const tema = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 

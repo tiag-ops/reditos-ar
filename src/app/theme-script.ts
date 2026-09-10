@@ -1,2 +1,4 @@
 // Script anti-flash: aplica el tema ANTES del primer paint. Se inyecta en <head>.
-export const themeScript = `(function(){try{var t=localStorage.getItem('tema');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}})();`;
+// Default: light-mode. Solo entra en dark si el usuario lo persistió previamente
+// (localStorage 'tema' === 'dark'); la preferencia del sistema ya no se aplica.
+export const themeScript = `(function(){try{if(localStorage.getItem('tema')==='dark'){document.documentElement.classList.add('dark')}}catch(e){}})();`;
