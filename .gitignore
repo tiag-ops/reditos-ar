@@ -2,3 +2,10 @@ node_modules/
 out/
 .next/
 *.tsbuildinfo
+
+# Generados por Next (agent rules)
+AGENTS.md
+CLAUDE.md
+
+# Estado local de GSC
+gsc_state.json
