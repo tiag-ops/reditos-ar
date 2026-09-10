@@ -22,13 +22,14 @@ export function PlantillaOG({ titular, chip }: PlantillaOGProps) {
         flexDirection: "column",
         justifyContent: "space-between",
         padding: 72,
-        background: "#fafafa",
-        borderLeft: "16px solid #2563eb",
+        backgroundColor: "#1e3a8a",
+        backgroundImage: "linear-gradient(135deg, #0b1f4b 0%, #1d4ed8 60%, #2563eb 100%)",
+        borderLeft: "16px solid #93c5fd",
         fontFamily: "sans-serif",
       }}
     >
-      <div style={{ display: "flex", fontSize: 36, fontWeight: 700, color: "#171717" }}>
-        Redito<span style={{ color: "#2563eb" }}>.ar</span>
+      <div style={{ display: "flex", fontSize: 36, fontWeight: 700, color: "#ffffff" }}>
+        Redito<span style={{ color: "#bfdbfe" }}>.ar</span>
       </div>
 
       <div
@@ -38,7 +39,7 @@ export function PlantillaOG({ titular, chip }: PlantillaOGProps) {
           fontWeight: 800,
           letterSpacing: "-0.02em",
           lineHeight: 1.15,
-          color: "#171717",
+          color: "#ffffff",
         }}
       >
         {titular}
@@ -50,15 +51,15 @@ export function PlantillaOG({ titular, chip }: PlantillaOGProps) {
             display: "flex",
             padding: "10px 26px",
             borderRadius: 999,
-            background: "#2563eb",
-            color: "#ffffff",
+            background: "#ffffff",
+            color: "#1d4ed8",
             fontSize: 24,
             fontWeight: 700,
           }}
         >
           {chip}
         </div>
-        <div style={{ display: "flex", fontSize: 24, color: "#737373" }}>
+        <div style={{ display: "flex", fontSize: 24, color: "#bfdbfe" }}>
           Datos oficiales BCRA · INDEC
         </div>
       </div>
