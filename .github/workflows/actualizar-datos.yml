@@ -51,7 +51,9 @@ jobs:
           git checkout -b "datos/auto-${{ steps.diff.outputs.mes }}"
           git add src/data
           git commit -m "datos: actualización automática ${{ steps.diff.outputs.mes }}"
-          git push origin "datos/auto-${{ steps.diff.outputs.mes }}"
+          # --force: la rama de datos se regenera desde el main actual en cada run;
+          # un re-run del mismo mes (o una rama huérfana de un run fallido) no debe romper el push
+          git push --force origin "datos/auto-${{ steps.diff.outputs.mes }}"
           gh pr create \
             --title "datos: actualización automática ${{ steps.diff.outputs.mes }}" \
             --body "JSON de tasas/dólar/IPC regenerados desde BCRA + Argly. Merge automático si el CI pasa." \
