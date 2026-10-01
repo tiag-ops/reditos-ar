@@ -1,8 +1,8 @@
 {
-  "fecha": "2026-09-09",
+  "fecha": "2026-09-30",
   "fuente": "https://api.bcra.gob.ar/estadisticascambiarias/v1.0/Cotizaciones/USD",
   "valores": {
-    "oficial": 1513.5,
+    "oficial": 1517,
     "tipoPase": 0
   }
 }

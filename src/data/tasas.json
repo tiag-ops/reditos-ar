@@ -1,36 +1,36 @@
 {
-  "fecha": "2026-09-08",
+  "fecha": "2026-09-29",
   "fuente": "https://api.bcra.gob.ar/estadisticas/v4.0/Monetarias/12",
   "valores": {
-    "tnaPlazoFijo30": 21.66,
+    "tnaPlazoFijo30": 22.34,
     "serie7d": [
       {
-        "fecha": "2026-08-31",
-        "valor": 21.37
+        "fecha": "2026-09-21",
+        "valor": 20.93
       },
       {
-        "fecha": "2026-09-01",
-        "valor": 21.36
+        "fecha": "2026-09-22",
+        "valor": 21.27
       },
       {
-        "fecha": "2026-09-02",
-        "valor": 22.14
+        "fecha": "2026-09-23",
+        "valor": 21.87
       },
       {
-        "fecha": "2026-09-03",
-        "valor": 21.82
+        "fecha": "2026-09-24",
+        "valor": 22.27
       },
       {
-        "fecha": "2026-09-04",
-        "valor": 20.76
+        "fecha": "2026-09-25",
+        "valor": 20.2
       },
       {
-        "fecha": "2026-09-07",
-        "valor": 21.05
+        "fecha": "2026-09-28",
+        "valor": 21.11
       },
       {
-        "fecha": "2026-09-08",
-        "valor": 21.66
+        "fecha": "2026-09-29",
+        "valor": 22.34
       }
     ]
   }
