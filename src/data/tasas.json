@@ -1,13 +1,9 @@
 {
-  "fecha": "2026-10-29",
+  "fecha": "2026-10-30",
   "fuente": "https://api.bcra.gob.ar/estadisticas/v4.0/Monetarias/12",
   "valores": {
-    "tnaPlazoFijo30": 22.39,
+    "tnaPlazoFijo30": 21.77,
     "serie7d": [
-      {
-        "fecha": "2026-10-21",
-        "valor": 21
-      },
       {
         "fecha": "2026-10-22",
         "valor": 21.99
@@ -31,6 +27,10 @@
       {
         "fecha": "2026-10-29",
         "valor": 22.39
+      },
+      {
+        "fecha": "2026-10-30",
+        "valor": 21.77
       }
     ]
   }
