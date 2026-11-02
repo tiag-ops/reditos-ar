@@ -1,14 +1,12 @@
 name: actualizar-datos
-# Pipeline mensual: BCRA/INDEC → JSON → auto-PR → deploy de Pages.
-# Patrón idéntico a vigilar-arca.yml de SueldoNeto.ar.
+# Pipeline mensual: BCRA/INDEC â†’ JSON â†’ sanity + tests + build â†’ push a main â†’ deploy de Pages.
 on:
   schedule:
-    - cron: "0 10 1 * *" # 1º de cada mes 10:00 UTC
+    - cron: "0 10 1 * *" # 1Âº de cada mes 10:00 UTC
   workflow_dispatch:
 
 permissions:
   contents: write
-  pull-requests: write
 
 jobs:
   actualizar:
@@ -26,7 +24,7 @@ jobs:
       - name: Sanity de los datos (rango + frescura)
         run: node scripts/sanity-datos.mjs
 
-      - name: Validar con tests antes de abrir el PR
+      - name: Validar con tests antes de publicar
         run: |
           npm ci
           npm test
@@ -43,36 +41,14 @@ jobs:
             echo "mes=$MES" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Crear rama + commit + PR
+      - name: Commit y push a main
         if: steps.diff.outputs.cambios == 'true'
         run: |
           git config user.name "hermes-bot"
           git config user.email "bot@reditos.ar"
-          git checkout -b "datos/auto-${{ steps.diff.outputs.mes }}"
           git add src/data
-          git commit -m "datos: actualización automática ${{ steps.diff.outputs.mes }}"
-          # --force: la rama de datos se regenera desde el main actual en cada run;
-          # un re-run del mismo mes (o una rama huérfana de un run fallido) no debe romper el push
-          git push --force origin "datos/auto-${{ steps.diff.outputs.mes }}"
-          gh pr create \
-            --title "datos: actualización automática ${{ steps.diff.outputs.mes }}" \
-            --body "JSON de tasas/dólar/IPC regenerados desde BCRA + Argly. Merge automático si el CI pasa." \
-            --base main \
-            --head "datos/auto-${{ steps.diff.outputs.mes }}"
-        env:
-          GH_TOKEN: ${{ github.token }}
-
-      - name: Esperar checks y mergear el PR de datos
-        if: steps.diff.outputs.cambios == 'true'
-        run: |
-          PR=$(gh pr view "datos/auto-${{ steps.diff.outputs.mes }}" --json number -q .number)
-          # Los checks tardan ~1 min en registrarse al crear el PR: poll antes de --watch
-          for i in $(seq 1 30); do
-            gh pr checks "$PR" >/dev/null 2>&1 && break
-            sleep 20
-          done
-          # --watch termina con exit code != 0 si algún check falla → no mergea
-          gh pr checks "$PR" --watch --interval 20
-          gh pr merge --squash "$PR" --delete-branch
-        env:
-          GH_TOKEN: ${{ github.token }}
+          git commit -m "datos: actualizaciÃ³n automÃ¡tica ${{ steps.diff.outputs.mes }}"
+          # Push directo: los datos ya pasaron sanity + tests + build arriba. Un PR
+          # creado con GITHUB_TOKEN queda esperando aprobaciÃ³n manual y el run
+          # vence en rojo todos los meses (el CI nunca corre).
+          git push origin HEAD:main
